@@ -33,8 +33,6 @@ RUN apt-get update && apt-get upgrade -y && \
 
 RUN npm install --global npm@9
 
-RUN npm install --save-dev vite bootstrap @popperjs/core sass
-
 RUN rm -rf /tmp/* \
     && rm -rf /var/list/apt/* \
     && rm -rf /var/lib/apt/lists/* \
