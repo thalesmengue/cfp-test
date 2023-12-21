@@ -50,7 +50,7 @@
 </div>
 <div class="mb-3">
     <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password" name="password" autocomplete="new-password" required>
+    <input type="password" class="form-control" id="password" name="password" autocomplete="new-password">
     @if($errors->has('password'))
         <div class="col-12 text-center mt-2">
             <span role="alert" class="alert alert-danger d-inline-block text-center mb-0">{{ $errors->first('password') }}</span>
