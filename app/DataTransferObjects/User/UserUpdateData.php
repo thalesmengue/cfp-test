@@ -7,12 +7,12 @@ use App\DataTransferObjects\DataTransferObject;
 class UserUpdateData extends DataTransferObject
 {
     public function __construct(
-        public string $firstName,
-        public string $lastName,
-        public string $email,
-        public string $username,
-        public string $mobile,
-        public ?string $password,
+        public readonly string $firstName,
+        public readonly string $lastName,
+        public readonly string $email,
+        public readonly string $username,
+        public readonly string $mobile,
+        public readonly ?string $password,
     )
     {
     }
