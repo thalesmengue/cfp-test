@@ -51,13 +51,15 @@ class UserController extends Controller
 
         $action->execute($data, $user);
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully');
+        return redirect()->route('users.index')
+            ->with('success', 'User updated successfully');
     }
 
     public function destroy(User $user, UserDeleteAction $action): RedirectResponse
     {
         $action->execute($user);
 
-        return back()->with('success', 'User deleted successfully');
+        return back()
+            ->with('success', 'User deleted successfully');
     }
 }
