@@ -7,7 +7,7 @@ besides, the application must have an interface to the user. This project has as
 
 - The project has docker, which makes it easier to run the application, besides, the containerization counts with PHP-FPM and NGINX, which makes the application faster and more secure.
 - Web routes and api routes are covered by tests with PHPUnit, to ensure that the application is working as expected.
-- The application has a simple interface, where the user can perform the basic crud operations. Besides the interface, the application has also an api, where the user can perform the same operations and be easily .
+- The application has a simple interface, where the user can perform the basic crud operations. Besides the interface, the application has also an api, where the user can perform the same operations and be easily implemented on a client side.
 - The application has an architecture that focus on the separation of concerns and dependency injection, which makes the application more scalable and maintainable.
 - The code has followed the best practices of the PHP language, such as PSR-12, which makes the code more readable and standardized.
 - Commits where made following the conventional commits pattern, this way making the commit history more understandable and increasing readability.
