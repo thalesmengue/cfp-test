@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('mobile');
-            $table->string('username', 32);
+            $table->string('username', 32)->unique();
             $table->string('password', 60);
             $table->timestamps();
         });
