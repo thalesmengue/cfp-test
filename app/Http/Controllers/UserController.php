@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Users\UserUpdateAction;
+use App\Http\Requests\User\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -32,7 +34,8 @@ class UserController extends Controller
 
         $action->execute($data);
 
-        return redirect()->route('users.index')->with('success', 'User created successfully');
+        return redirect()->route('users.index')
+            ->with('success', 'User created successfully');
     }
 
     public function edit(User $user): View
@@ -42,15 +45,19 @@ class UserController extends Controller
         ]);
     }
 
-    public function update()
+    public function update(UserUpdateRequest $request, User $user, UserUpdateAction $action): RedirectResponse
     {
-        //
+        $data = $request->validated();
+
+        $action->execute($data, $user);
+
+        return redirect()->route('users.index')->with('success', 'User updated successfully');
     }
 
     public function destroy(User $user, UserDeleteAction $action): RedirectResponse
     {
         $action->execute($user);
 
-        return back();
+        return back()->with('success', 'User deleted successfully');
     }
 }
