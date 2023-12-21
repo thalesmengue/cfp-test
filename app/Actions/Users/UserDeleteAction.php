@@ -2,6 +2,7 @@
 
 namespace App\Actions\Users;
 
+use App\Models\User;
 use App\Repositories\Users\UserRepository;
 
 class UserDeleteAction
@@ -11,7 +12,7 @@ class UserDeleteAction
     )
     {
     }
-    public function execute($user): bool
+    public function execute(User $user): bool
     {
         return $this->userRepository->delete($user);
     }
