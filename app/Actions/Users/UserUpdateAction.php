@@ -2,6 +2,7 @@
 
 namespace App\Actions\Users;
 
+use App\DataTransferObjects\User\UserUpdateData;
 use App\Models\User;
 use App\Repositories\Users\UserRepository;
 
@@ -13,12 +14,8 @@ class UserUpdateAction
     {
     }
 
-    public function execute(array $data, User $user): bool
+    public function execute(UserUpdateData $data, User $user): bool
     {
-        if (blank($data['password'])) {
-            unset ($data['password']);
-        }
-
         return $this->userRepository->update($data, $user);
     }
 }

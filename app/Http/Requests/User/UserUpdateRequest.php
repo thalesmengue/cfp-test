@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\User;
 
+use App\DataTransferObjects\User\UserUpdateData;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserUpdateRequest extends FormRequest
@@ -29,5 +30,17 @@ class UserUpdateRequest extends FormRequest
             'mobile' => ['sometimes', 'string', 'max:15', 'min:9'],
             'username' => ['sometimes', 'string', 'max:32', 'min:3', 'unique:users,username,' . $this->user->id],
         ];
+    }
+
+    public function toDTO(): UserUpdateData
+    {
+        return new UserUpdateData(
+            firstName: $this->input('first_name'),
+            lastName: $this->input('last_name'),
+            email: $this->input('email'),
+            username: $this->input('username'),
+            mobile: $this->input('mobile'),
+            password: $this->input('password') ?? $this->user->password,
+        );
     }
 }

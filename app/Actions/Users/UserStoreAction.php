@@ -2,7 +2,9 @@
 
 namespace App\Actions\Users;
 
+use App\DataTransferObjects\User\UserStoreData;
 use App\Repositories\Users\UserRepository;
+use Illuminate\Database\Eloquent\Model;
 
 class UserStoreAction
 {
@@ -12,7 +14,7 @@ class UserStoreAction
     {
     }
 
-    public function execute(array $data)
+    public function execute(UserStoreData $data): Model
     {
         return $this->userRepository->create($data);
     }

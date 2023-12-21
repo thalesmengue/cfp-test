@@ -45,7 +45,7 @@ class AuthController extends Controller
         UserStoreAction $userStoreAction
     ): RedirectResponse
     {
-        $data = $request->validated();
+        $data = $request->toDTO();
 
         $userStoreAction->execute($data);
 

@@ -30,7 +30,7 @@ class UserController extends Controller
 
     public function store(UserStoreRequest $request, UserStoreAction $action): RedirectResponse
     {
-        $data = $request->validated();
+        $data = $request->toDTO();
 
         $action->execute($data);
 
@@ -47,7 +47,7 @@ class UserController extends Controller
 
     public function update(UserUpdateRequest $request, User $user, UserUpdateAction $action): RedirectResponse
     {
-        $data = $request->validated();
+        $data = $request->toDTO();
 
         $action->execute($data, $user);
 

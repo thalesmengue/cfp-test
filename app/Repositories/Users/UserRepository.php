@@ -2,6 +2,8 @@
 
 namespace App\Repositories\Users;
 
+use App\DataTransferObjects\User\UserStoreData;
+use App\DataTransferObjects\User\UserUpdateData;
 use App\Models\User;
 use App\Repositories\RepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
@@ -14,14 +16,28 @@ class UserRepository implements RepositoryInterface
         return User::all();
     }
 
-    public function create(array $data): Model
+    public function create(UserStoreData $data): Model
     {
-        return User::create($data);
+        return User::create([
+            'first_name' => $data->firstName,
+            'last_name' => $data->lastName,
+            'email' => $data->email,
+            'username' => $data->username,
+            'mobile' => $data->mobile,
+            'password' => $data->password,
+        ]);
     }
 
-    public function update(array $data, User $user): bool
+    public function update(UserUpdateData $data, User $user): bool
     {
-        return $user->update($data);
+        return $user->update([
+            'first_name' => $data->firstName,
+            'last_name' => $data->lastName,
+            'email' => $data->email,
+            'username' => $data->username,
+            'mobile' => $data->mobile,
+            'password' => $data->password,
+        ]);
     }
 
     public function delete(User $user): bool

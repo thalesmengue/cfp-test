@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\User;
 
+use App\DataTransferObjects\User\UserStoreData;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserStoreRequest extends FormRequest
@@ -29,5 +30,17 @@ class UserStoreRequest extends FormRequest
             'mobile' => ['required', 'string', 'max:15', 'min:9'],
             'username' => ['required', 'string', 'max:32', 'min:3', 'unique:users,username'],
         ];
+    }
+
+    public function toDTO(): UserStoreData
+    {
+        return new UserStoreData(
+            firstName: $this->input('first_name'),
+            lastName: $this->input('last_name'),
+            email: $this->input('email'),
+            username: $this->input('username'),
+            mobile: $this->input('mobile'),
+            password: $this->input('password'),
+        );
     }
 }
