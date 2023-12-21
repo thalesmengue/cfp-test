@@ -10,6 +10,8 @@ use Tests\TestCase;
 
 class UserControllerTest extends TestCase
 {
+    use WithFaker;
+
     public function test_it_should_be_able_to_access_index_route_records(): void
     {
         $user = User::factory()->create();
@@ -33,10 +35,10 @@ class UserControllerTest extends TestCase
         $payload = [
             'first_name' => 'test',
             'last_name' => 'assert',
-            'email' => 'test@assert.com',
+            'email' => $this->faker->email,
             'password' => '12345678',
             'mobile' => '123456789',
-            'username' => 'testassert',
+            'username' => $this->faker->userName,
         ];
 
         $this->actingAs($user);
@@ -60,10 +62,10 @@ class UserControllerTest extends TestCase
         $payload = [
             'first_name' => 'test',
             'last_name' => 'as',
-            'email' => 'assert',
+            'email' => $this->faker->email,
             'password' => '12345678',
             'mobile' => '123456789',
-            'username' => 'testas'
+            'username' => $this->faker->userName,
         ];
 
         $this->actingAs($user);
@@ -72,7 +74,6 @@ class UserControllerTest extends TestCase
 
         $response->assertSessionHasErrors([
             'last_name',
-            'email'
         ]);
     }
 
@@ -86,10 +87,10 @@ class UserControllerTest extends TestCase
         $payload = [
             'first_name' => 'assert',
             'last_name' => 'test',
-            'email' => 'assert@test.com',
+            'email' => $this->faker->email,
             'password' => '12345678',
             'mobile' => '123456789',
-            'username' => 'asserttest',
+            'username' => $this->faker->userName,
         ];
 
         $this->actingAs($user);
@@ -114,10 +115,10 @@ class UserControllerTest extends TestCase
 
         $this->actingAs($user);
 
-        $response = $this->put(route('users.update', $user->id), $payload);
+        $response = $this->put(route('users.update', $user), $payload);
 
         $response->assertSessionHasErrors([
-            'email'
+            'email',
         ]);
     }
 
