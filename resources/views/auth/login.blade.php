@@ -11,7 +11,7 @@
                 <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4">
 
                     @if (Session::get('success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success" id="alert-success">
                             {{ Session::get('success') }}
                         </div>
                     @endif

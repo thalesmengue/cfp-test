@@ -7,6 +7,11 @@
 @section('content')
     <div class="container mt-5">
         <div class="row align-items-center">
+            @if (Session::get('success'))
+                <div class="alert alert-success" id="alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
             <div class="col-md-6">
                 <h1 class="h2 mb-4">Users</h1>
                 <p class="text-muted mb-4">Here stay the list of all the registered users</p>
