@@ -1,16 +1,16 @@
 # User Management Application
 
-Basically, this chis challenge consists in creating a user management application, where the user can perform basic crud operations,
-besides, the application must have an interface to the user. This project has as the main goal to show skills on back end and in front end.
+My challenge consists of creating a user management application where the user can perform basic operations, and the application must have an interface to the user. The main goal of this project is to show back-end and front-end skills.
+
 
 ## About the project
 
-- The project has docker, which makes it easier to run the application, besides, the containerization counts with PHP-FPM and NGINX, which makes the application faster and more secure.
-- Web routes and api routes are covered by tests with PHPUnit, to ensure that the application is working as expected.
-- The application has a simple interface, where the user can perform the basic crud operations. Besides the interface, the application has also an api, where the user can perform the same operations and be easily implemented on a client side.
-- The application has an architecture that focus on the separation of concerns and dependency injection, which makes the application more scalable and maintainable.
-- The code has followed the best practices of the PHP language, such as PSR-12, which makes the code more readable and standardized.
-- Commits where made following the conventional commits pattern, this way making the commit history more understandable and increasing readability.
+- The project includes Docker, which makes the application easier to run, and containerization with PHP-FPM and NGINX, which makes the application faster and more secure
+- Web routes and API routes are covered by testing with PHPUnit to ensure that the application works as expected.
+- The application has a simple interface where the user can perform the basic operations. Besides the interface, the application also has an API where the user can perform the same operations and be easily implemented on a client side.
+- The application has an architecture that focuses on separation of concerns and dependency injection, making the application more scalable and maintainable.
+- The code follows the best practices of the PHP language, such as PSR-12, which makes the code more readable and standardized.
+- Commits have been made following the conventional commit pattern, which makes the commit history more understandable and readable.
 
 ### How to run the project
 ```bash
